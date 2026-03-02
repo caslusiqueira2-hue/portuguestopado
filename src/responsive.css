@@ -1,0 +1,257 @@
+/* ══════════════════════════════════════════════════
+   RESPONSIVE OVERRIDES FOR IFRN PLATFORM
+══════════════════════════════════════════════════ */
+
+/* Global Mobile Fixes */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  #root {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+}
+
+/* Navigation Bar Responsiveness */
+@media (max-width: 1024px) {
+  nav {
+    padding: 0 16px !important;
+  }
+}
+
+@media (max-width: 850px) {
+  nav {
+    flex-direction: column !important;
+    height: auto !important;
+    padding: 12px 16px !important;
+    gap: 12px !important;
+  }
+
+  nav>div:first-child {
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+
+  /* Scrollable Navigation Pills */
+  .nav-pills-container {
+    overflow-x: auto !important;
+    width: 100% !important;
+    padding-bottom: 8px !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .nav-pills-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .search-container {
+    width: 100% !important;
+    margin-top: 4px;
+  }
+
+  .context-badge {
+    display: none !important;
+  }
+}
+
+/* Home Page Hero & Grids */
+@media (max-width: 768px) {
+  header {
+    padding: 40px 20px 48px !important;
+  }
+
+  header>div {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  header h1 {
+    font-size: 28px !important;
+    text-align: center;
+  }
+
+  header p {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  header .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  main {
+    padding: 24px 16px 100px !important;
+  }
+
+  .track-rail-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .track-rail-arrows {
+    display: none !important;
+  }
+}
+
+/* Track Rail Horizontal Scrolling */
+@media (max-width: 768px) {
+  .track-rail-container {
+    padding-bottom: 12px !important;
+  }
+
+  .module-card {
+    min-width: 200px !important;
+  }
+}
+
+/* Clarity Lab Responsiveness */
+@media (max-width: 768px) {
+  .clarity-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .clarity-lab-view {
+    padding: 24px 20px !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    border: none !important;
+  }
+
+  .feynman-step {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .feynman-step>div:first-child {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 10px !important;
+  }
+}
+
+/* Focus Protocol (Protocolo de Foco) */
+@media (max-width: 768px) {
+  .focus-dashboard {
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+
+  .focus-timer-ring {
+    width: 240px !important;
+    height: 240px !important;
+  }
+
+  .focus-metrics-panel {
+    width: 100% !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* Memory Training (Flashcards) */
+@media (max-width: 768px) {
+  .flashcard-main {
+    width: 100% !important;
+    padding: 0 16px !important;
+  }
+
+  .flashcard-view {
+    min-height: 380px !important;
+  }
+
+  .flashcard-controls {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .flashcard-controls button {
+    width: 100% !important;
+  }
+}
+
+/* Module Panel (Slide-in) */
+@media (max-width: 900px) {
+  .module-modal-container {
+    flex-direction: column !important;
+    padding: 32px 24px !important;
+    gap: 40px !important;
+    max-height: 90vh;
+    overflow-y: auto !important;
+  }
+
+  .module-modal-side {
+    width: 100% !important;
+    border-left: none !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+    padding-left: 0 !important;
+    padding-top: 32px !important;
+  }
+}
+
+/* Lesson Page Responsiveness */
+@media (max-width: 1024px) {
+  .lesson-container {
+    flex-direction: column !important;
+  }
+
+  .lesson-sidebar {
+    position: fixed !important;
+    left: -240px;
+    top: 60px;
+    bottom: 0;
+    z-index: 200;
+    background: #111 !important;
+    transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .lesson-sidebar.open {
+    left: 0 !important;
+  }
+
+  .lesson-main {
+    padding: 24px 16px 100px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .lesson-header {
+    padding: 0 16px !important;
+  }
+
+  .lesson-header h1 {
+    font-size: 20px !important;
+  }
+}
+
+/* Search Results Grid */
+@media (max-width: 480px) {
+  .search-results-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+  }
+}
+
+/* Redacao Page Responsiveness */
+@media (max-width: 768px) {
+  .redacao-result-container {
+    grid-template-columns: 1fr !important;
+  }
+
+  .redacao-result-container aside {
+    order: 2;
+  }
+
+  .redacao-result-container main {
+    order: 1;
+  }
+
+  .transcription-review-footer {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+}
