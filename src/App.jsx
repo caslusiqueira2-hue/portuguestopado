@@ -2332,17 +2332,103 @@ function LessonClasses({ modulo, area, onHome, onClarityLab }) {
   );
 }
 
+function LessonInterpretacao({ modulo, area, onHome }) {
+  const sections = [
+    "Interpretação × Decodificar",
+    "Erros de Interpretação",
+    "Gêneros Textuais",
+    "Tipologia Textual",
+    "Ideias Principal e Secundárias",
+    "Citação",
+    "Variação Linguística",
+    "Coesão e Coerência",
+    "Quiz de Fixação",
+    "Resumo e Mapa Mental"
+  ];
+  const [activeSec, setActiveSec] = useState(0);
+  const [showSidebar, setShowSidebar] = useState(false);
+
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+
+  return (
+    <div className="lesson-container" style={{ display: "flex", flex: 1, minHeight: 0 }}>
+      {/* SIDEBAR TÖGGLE MOBILE */}
+      <button
+        onClick={() => setShowSidebar(!showSidebar)}
+        style={{
+          position: "fixed", bottom: 20, right: 20, zIndex: 300,
+          width: 50, height: 50, borderRadius: "50%", background: "#C0392B",
+          color: "#fff", border: "none", boxShadow: "0 4px 12px rgba(0,0,0,0.5)",
+          display: "none", alignItems: "center", justifyContent: "center", fontSize: 20,
+          cursor: "pointer"
+        }}
+        className="mobile-sidebar-toggle"
+      >
+        {showSidebar ? "×" : "☰"}
+      </button>
+
+      {/* SIDEBAR */}
+      <aside className={`lesson-sidebar ${showSidebar ? "open" : ""}`} style={{ width: 210, flexShrink: 0, borderRight: "1px solid rgba(255,255,255,0.06)", padding: "20px 14px", position: "sticky", top: 52, height: "calc(100vh - 52px)", overflowY: "auto" }}>
+        <p style={{ fontSize: 9, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", color: "#444", marginBottom: 10 }}>Neste módulo</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+          {sections.map((s, i) => (
+            <button key={i} onClick={() => { setActiveSec(i); setShowSidebar(false); document.getElementById(`sec-int-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" }); }}
+              style={{ width: "100%", padding: "7px 9px", borderRadius: 6, background: activeSec === i ? "#C0392B15" : "transparent", border: `1px solid ${activeSec === i ? "#C0392B30" : "transparent"}`, color: activeSec === i ? "#ddd" : "#555", fontSize: 11, fontWeight: activeSec === i ? 700 : 400, textAlign: "left", cursor: "pointer", fontFamily: "inherit", display: "flex", alignItems: "center", gap: 7, transition: "all 0.15s" }}>
+              <span style={{ width: 16, height: 16, borderRadius: "50%", flexShrink: 0, background: activeSec === i ? "#C0392B30" : "#222", border: `1px solid ${activeSec === i ? "#C0392B50" : "#333"}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 8, fontWeight: 800, color: activeSec === i ? "#C0392B" : "#444" }}>{i + 1}</span>
+              {s}
+            </button>
+          ))}
+        </div>
+        <div style={{ height: 1, background: "rgba(255,255,255,0.06)", margin: "16px 0" }} />
+        <button onClick={onHome} style={{ width: "100%", padding: "8px 10px", borderRadius: 6, background: "#1e1e1e", border: "1px solid rgba(255,255,255,0.06)", color: "#666", fontSize: 11, fontWeight: 600, cursor: "pointer", fontFamily: "inherit", display: "flex", alignItems: "center", gap: 6 }}>
+          ← Voltar à home
+        </button>
+      </aside>
+
+      {/* MAIN */}
+      <main style={{ flex: 1, padding: "36px 44px 80px", overflowX: "hidden", maxWidth: 840 }}>
+        {/* Module header */}
+        <div style={{ marginBottom: 40, paddingBottom: 28, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+          <div>
+            <div style={{ display: "inline-block", padding: "3px 10px", borderRadius: 20, background: "#C0392B18", border: "1px solid #C0392B30", color: "#C0392B", fontSize: 11, fontWeight: 700, marginBottom: 12 }}>{area.emoji} {area.title}</div>
+            <h1 style={{ fontSize: "clamp(24px, 3.5vw, 36px)", fontWeight: 900, color: "#fff", margin: "0 0 10px", letterSpacing: "-0.04em", lineHeight: 1.1 }}>{modulo.title}</h1>
+            <p style={{ fontSize: 13, color: "#666", lineHeight: 1.7, maxWidth: 480, margin: "0 0 16px" }}>Domine a leitura e análise crítica para as provas do IFRN.</p>
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              {[`${sections.length} seções`, "Conteúdo oficial IFRN"].map(b => (
+                <div key={b} style={{ padding: "3px 10px", borderRadius: 20, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)", fontSize: 10, color: "#555" }}>{b}</div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div id="sec-int-0" style={{ scrollMarginTop: 68 }}><SecInferencia /></div>
+        <div id="sec-int-1" style={{ scrollMarginTop: 68 }}><SecErros /></div>
+        <div id="sec-int-2" style={{ scrollMarginTop: 68 }}><SecGeneros /></div>
+        <div id="sec-int-3" style={{ scrollMarginTop: 68 }}><SecTipologia /></div>
+        <div id="sec-int-4" style={{ scrollMarginTop: 68 }}><SecIdeias /></div>
+        <div id="sec-int-5" style={{ scrollMarginTop: 68 }}><SecCitacao /></div>
+        <div id="sec-int-6" style={{ scrollMarginTop: 68 }}><SecVariacao /></div>
+        <div id="sec-int-7" style={{ scrollMarginTop: 68 }}><SecCoesaoCoerencia /></div>
+        <div id="sec-int-8" style={{ scrollMarginTop: 68 }}><SecQuiz /></div>
+        <div id="sec-int-9" style={{ scrollMarginTop: 68 }}><SecResumo onHome={onHome} /></div>
+      </main>
+    </div>
+  );
+}
+
 function LessonPage({ modulo, area, onHome, onClarityLab }) {
-  if (area.slug === "fonologia") {
-    return <LessonFonologia modulo={modulo} area={area} onHome={onHome} onClarityLab={onClarityLab} />;
-  }
-  if (area.slug === "formacao") {
-    return <LessonFormacao modulo={modulo} area={area} onHome={onHome} onClarityLab={onClarityLab} />;
-  }
-  if (area.slug === "classes") {
-    return <LessonClasses modulo={modulo} area={area} onHome={onHome} onClarityLab={onClarityLab} />;
-  }
-  return <LessonInterpretacao modulo={modulo} area={area} onHome={onHome} onClarityLab={onClarityLab} />;
+  if (area.slug === "fonologia") return <LessonFonologia modulo={modulo} area={area} onHome={onHome} onClarityLab={onClarityLab} />;
+  if (area.slug === "formacao") return <LessonFormacao modulo={modulo} area={area} onHome={onHome} onClarityLab={onClarityLab} />;
+  if (area.slug === "classes") return <LessonClasses modulo={modulo} area={area} onHome={onHome} onClarityLab={onClarityLab} />;
+  if (area.slug === "interpretacao") return <LessonInterpretacao modulo={modulo} area={area} onHome={onHome} onClarityLab={onClarityLab} />;
+
+  return (
+    <div style={{ padding: 100, textAlign: "center", color: "#666" }}>
+      <h2 style={{ color: "#fff", marginBottom: 12 }}>Aula em desenvolvimento...</h2>
+      <p>O conteúdo interativo para <strong>{area.title}</strong> está sendo preparado.</p>
+      <button onClick={onHome} style={{ marginTop: 24, padding: "10px 24px", background: "#C0392B", border: "none", color: "#fff", cursor: "pointer", borderRadius: 6, fontWeight: 700 }}>Voltar à Home</button>
+    </div>
+  );
 }
 
 
