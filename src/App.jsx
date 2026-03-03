@@ -15,14 +15,14 @@ const BORDER = "rgba(255,255,255,0.06)";
 /* ══════════════════════════════════════════════════
    CATALOG DATA
 ══════════════════════════════════════════════════ */
-const catalog = {
+const INITIAL_CATALOG = {
   areas: [
     {
       slug: "interpretacao", emoji: "📖",
       title: "Interpretação e Análise de Textos",
       descricao: "Leitura, compreensão e análise de textos de diferentes gêneros.",
       modulos: [
-        { slug: "interp-x-decod", title: "Interpretação × Decodificar", subtopicos: ["O que é interpretar?", "O que é analisar?", "Inferência vs. Decodificação", "Ideia principal e secundárias"], progresso: 35, bloqueado: false, temAula: true },
+        { slug: "interp-x-decod", title: "Interpretação × Decodificar", subtopicos: ["O que é interpretar?", "O que é analisar?", "Inferência vs. Decodificação", "Ideia principal e secundárias"], progresso: 0, bloqueado: false, temAula: true },
         { slug: "erros-interp", title: "Erros de Interpretação", subtopicos: ["Extrapolação", "Redução", "Contradição", "Como evitar erros em provas"], progresso: 0, bloqueado: false, temAula: true },
         { slug: "generos", title: "Gêneros Textuais", subtopicos: ["Gênero textual", "Forma e estrutura", "Conteúdo e tema", "Intencionalidade do autor", "Artigo de opinião", "Notícia", "Crônica"], progresso: 0, bloqueado: false, temAula: true },
         { slug: "tipologia", title: "Tipologia Textual", subtopicos: ["Narrativo", "Descritivo", "Expositivo", "Argumentativo", "Injuntivo", "Dialogal"], progresso: 0, bloqueado: false, temAula: true },
@@ -77,12 +77,12 @@ const catalog = {
       title: "Sintaxe — Termos da Oração",
       descricao: "Estrutura das orações e relações entre termos.",
       modulos: [
-        { slug: "termos", title: "Termos da Oração", subtopicos: ["Sujeito e predicado", "Objeto direto", "Objeto indireto", "Complemento nominal", "Adjunto adnominal", "Adjunto adverbial", "Aposto", "Vocativo"], progresso: 0, bloqueado: false, temAula: false },
-        { slug: "sujeito", title: "Estudo do Sujeito", subtopicos: ["Sujeito simples", "Sujeito composto", "Sujeito oculto", "Sujeito indeterminado", "Oração sem sujeito"], progresso: 0, bloqueado: false, temAula: false },
-        { slug: "conc-verbal", title: "Concordância Verbal", subtopicos: ["Regra geral", "Sujeito composto antes do verbo", "Sujeito composto depois do verbo", "Pronome relativo que/quem", "Casos especiais"], progresso: 0, bloqueado: false, temAula: false },
-        { slug: "conc-nominal", title: "Concordância Nominal", subtopicos: ["Regra geral", "Adjetivo com vários substantivos", "Casos especiais"], progresso: 0, bloqueado: false, temAula: false },
-        { slug: "sub-sub", title: "Orações Subordinadas Substantivas", subtopicos: ["Subjetiva", "Objetiva direta", "Objetiva indireta", "Completiva nominal", "Predicativa", "Apositiva"], progresso: 0, bloqueado: false, temAula: false },
-        { slug: "sub-adj", title: "Orações Subordinadas Adjetivas", subtopicos: ["Restritiva", "Explicativa", "Pronomes relativos", "Reduzidas"], progresso: 0, bloqueado: false, temAula: false },
+        { slug: "termos", title: "Termos da Oração", subtopicos: ["Sujeito e predicado", "Objeto direto", "Objeto indireto", "Complemento nominal", "Adjunto adnominal", "Adjunto adverbial", "Aposto", "Vocativo"], progresso: 0, bloqueado: false, temAula: true },
+        { slug: "sujeito", title: "Estudo do Sujeito", subtopicos: ["Sujeito simples", "Sujeito composto", "Sujeito oculto", "Sujeito indeterminado", "Oração sem sujeito"], progresso: 0, bloqueado: false, temAula: true },
+        { slug: "conc-verbal", title: "Concordância Verbal", subtopicos: ["Regra geral", "Sujeito composto antes do verbo", "Sujeito composto depois do verbo", "Pronome relativo que/quem", "Casos especiais"], progresso: 0, bloqueado: false, temAula: true },
+        { slug: "conc-nominal", title: "Concordância Nominal", subtopicos: ["Regra geral", "Adjetivo com vários substantivos", "Casos especiais"], progresso: 0, bloqueado: false, temAula: true },
+        { slug: "sub-sub", title: "Orações Subordinadas Substantivas", subtopicos: ["Subjetiva", "Objetiva direta", "Objetiva indireta", "Completiva nominal", "Predicativa", "Apositiva"], progresso: 0, bloqueado: false, temAula: true },
+        { slug: "sub-adj", title: "Orações Subordinadas Adjetivas", subtopicos: ["Restritiva", "Explicativa", "Pronomes relativos", "Reduzidas"], progresso: 0, bloqueado: false, temAula: true },
       ],
     },
     {
@@ -90,15 +90,16 @@ const catalog = {
       title: "Crase e Pontuação",
       descricao: "Uso correto da crase e dos sinais de pontuação.",
       modulos: [
-        { slug: "crase", title: "Crase", subtopicos: ["O que é crase?", "Casos obrigatórios", "Casos proibidos", "Casos facultativos", "Crase antes de pronomes", "Crase antes de nomes próprios", "Dicas para a prova"], progresso: 0, bloqueado: false, temAula: false },
-        { slug: "pontuacao", title: "Pontuação", subtopicos: ["Vírgula — uso correto", "Vírgula — uso incorreto", "Ponto final", "Ponto e vírgula", "Dois-pontos", "Travessão", "Reticências", "Aspas", "Parênteses"], progresso: 0, bloqueado: false, temAula: false },
+        { slug: "crase", title: "Crase", subtopicos: ["O que é crase?", "Casos obrigatórios", "Casos proibidos", "Casos facultativos", "Crase antes de pronomes", "Crase antes de nomes próprios", "Dicas para a prova"], progresso: 0, bloqueado: false, temAula: true },
+        { slug: "pontuacao", title: "Pontuação", subtopicos: ["Vírgula — uso correto", "Vírgula — uso incorreto", "Ponto final", "Ponto e vírgula", "Dois-pontos", "Travessão", "Reticências", "Aspas", "Parênteses"], progresso: 0, bloqueado: false, temAula: true },
       ],
     },
   ],
 };
 
-function getAllModulos() {
-  return catalog.areas.flatMap(a => a.modulos.map(m => ({ area: a, modulo: m })));
+function getAllModulos(cat) {
+  if (!cat || !cat.areas) return [];
+  return cat.areas.flatMap(a => (a.modulos || []).map(m => ({ area: a, modulo: m })));
 }
 
 /* ══════════════════════════════════════════════════
@@ -458,14 +459,12 @@ function ModulePanel({ modulo, area, onClose, onOpenLesson }) {
           <p style={{ fontSize: 15, color: "#555", marginBottom: 40, lineHeight: 1.6 }}>{area.descricao}</p>
 
           <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-            {modulo.temAula && (
-              <button
-                onClick={() => { onClose(); onOpenLesson({ area, modulo }); }}
-                style={{ padding: "14px 28px", background: RED, border: "none", borderRadius: 8, color: "#fff", fontSize: 13, fontWeight: 700, cursor: "pointer", transition: "opacity 0.2s" }}
-                onMouseEnter={e => e.currentTarget.style.opacity = "0.85"}
-                onMouseLeave={e => e.currentTarget.style.opacity = "1"}
-              >EXPLORAR CONTEÚDO</button>
-            )}
+            <button
+              onClick={() => { onClose(); onOpenLesson({ area, modulo }); }}
+              style={{ padding: "14px 28px", background: RED, border: "none", borderRadius: 8, color: "#fff", fontSize: 13, fontWeight: 700, cursor: "pointer", transition: "opacity 0.2s" }}
+              onMouseEnter={e => e.currentTarget.style.opacity = "0.85"}
+              onMouseLeave={e => e.currentTarget.style.opacity = "1"}
+            >EXPLORAR CONTEÚDO</button>
           </div>
         </div>
 
@@ -564,11 +563,11 @@ function ProfilePage({ user, onUpdateUser, onHome }) {
   );
 }
 
-function HomePage({ onOpenLesson, onClarityLab, searchQuery }) {
+function HomePage({ onOpenLesson, onClarityLab, searchQuery, catalog }) {
   const [panel, setPanel] = useState(null);
 
   // Filtragem inteligente baseada na busca
-  const allModulos = getAllModulos();
+  const allModulos = getAllModulos(catalog);
   const searchLower = searchQuery.toLowerCase();
 
   const filteredModulos = allModulos.filter(x =>
@@ -2332,7 +2331,846 @@ function LessonClasses({ modulo, area, onHome, onClarityLab }) {
   );
 }
 
-function LessonInterpretacao({ modulo, area, onHome }) {
+/* ══════════════════════════════════════════════════
+   LESSON PAGE — Sintaxe — Termos da Oração
+══════════════════════════════════════════════════ */
+
+const syntaxSectionsNames = [
+  "Frase, Oração e Período",
+  "A Estrutura da Oração",
+  "Classificação do Verbo",
+  "Termos Sintáticos I",
+  "Termos Sintáticos II",
+  "Adjunto vs Complemento",
+  "Estudo do Sujeito",
+  "Sujeito Inexistente",
+  "Concordância Verbal",
+  "Concordância Nominal",
+  "O Período Composto",
+  "Orações Substantivas",
+  "Orações Adjetivas",
+  "Orações Adverbiais",
+  "Orações Coordenadas",
+  "Partículas QUE e SE",
+  "Estudo da Crase",
+  "Estudo da Pontuação",
+  "Quiz de Fixação"
+];
+
+function SecFraseOracao() {
+  return (
+    <section style={{ marginBottom: 52 }}>
+      <SectionTitle number="1" title="Frase, Oração e Período" subtitle="A base da organização das sentenças." />
+      <div style={{ background: "#161616", border: `1px solid ${BORDER}`, borderRadius: 10, padding: "20px", marginBottom: 18 }}>
+        <p style={{ fontSize: 13, color: "#ccc", lineHeight: 1.6, margin: "0 0 16px" }}>
+          Na sintaxe, não estudamos a classificação gramatical (morfologia), mas sim as <strong style={{ color: RED }}>funções</strong> que as palavras exercem na frase.
+        </p>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12 }}>
+          {[
+            { t: "FRASE", d: "Enunciado com sentido completo.", e: "Bom dia!" },
+            { t: "ORAÇÃO", d: "Frase que contém verbo (ou locução).", e: "Tenha um bom dia!" },
+            { t: "PERÍODO", d: "Organização de uma ou mais orações.", e: "Período Simples ou Composto." }
+          ].map(x => (
+            <div key={x.t} style={{ background: "rgba(255,255,255,0.03)", padding: 14, borderRadius: 8, border: `1px solid ${BORDER}` }}>
+              <p style={{ fontSize: 11, fontWeight: 900, color: RED, marginBottom: 4 }}>{x.t}</p>
+              <p style={{ fontSize: 12, color: "#fff", marginBottom: 6 }}>{x.d}</p>
+              <p style={{ fontSize: 11, color: "#666", fontStyle: "italic" }}>Ex: {x.e}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+        <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 10, padding: 18 }}>
+          <p style={{ fontSize: 13, fontWeight: 900, color: "#fff", marginBottom: 12 }}>PERÍODO SIMPLES</p>
+          <p style={{ fontSize: 12, color: "#888", marginBottom: 10 }}>Possui apenas uma oração (chamada de oração absoluta).</p>
+          <div style={{ background: "#1a1a1a", padding: 10, borderRadius: 6, fontSize: 13, color: RED }}>
+            "Tenha um bom dia!"
+          </div>
+        </div>
+        <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 10, padding: 18 }}>
+          <p style={{ fontSize: 13, fontWeight: 900, color: "#fff", marginBottom: 12 }}>PERÍODO COMPOSTO</p>
+          <p style={{ fontSize: 12, color: "#888", marginBottom: 10 }}>Possui duas ou mais orações.</p>
+          <div style={{ background: "#1a1a1a", padding: 10, borderRadius: 6, fontSize: 13, color: RED }}>
+            "Tenha um bom dia e acredite no futuro!"
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SecEstruturaOracao() {
+  return (
+    <section style={{ marginBottom: 52 }}>
+      <SectionTitle number="2" title="A Estrutura da Oração" subtitle="A ordem direta dos elementos sintáticos." />
+      <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 12, padding: "24px", textAlign: "center" }}>
+        <p style={{ fontSize: 11, fontWeight: 800, color: "#444", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 20 }}>ORDEM DIRETA</p>
+        <div style={{ display: "flex", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
+          {[
+            { label: "SUJEITO", content: "O ALUNO", color: "#4F7CFF" },
+            { label: "VERBO", content: "APRENDEU", color: RED },
+            { label: "COMPLEMENTO", content: "LÍNGUA PORTUGUESA", color: "#22C97A" },
+            { label: "ADJUNTO ADV.", content: "COM FACILIDADE", color: "#F59E0B" }
+          ].map(x => (
+            <div key={x.label} style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              <div style={{ background: x.color + "20", border: `1px solid ${x.color}40`, color: x.color, padding: "6px 12px", borderRadius: 4, fontSize: 11, fontWeight: 800 }}>{x.label}</div>
+              <div style={{ background: "#fff", color: "#111", padding: "12px 16px", borderRadius: 4, fontSize: 14, fontWeight: 700 }}>{x.content}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SecClassificacaoVerbo() {
+  return (
+    <section style={{ marginBottom: 52 }}>
+      <SectionTitle number="3" title="Classificação do Verbo" subtitle="Como o verbo se relaciona com seus complementos." />
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+        {[
+          { t: "VERBO INTRANSITIVO", d: "Não possui complemento.", e: "O bebê dormiu." },
+          { t: "VERBO TRANSITIVO", d: "Possui complemento (objeto).", e: "Eu comprei um livro." },
+          { t: "VERBO DE LIGAÇÃO", d: "Liga o sujeito ao seu atributo.", e: "O professor é poeta." },
+          { t: "BITRANSITIVO", d: "Possui dois complementos (Direto e Indireto).", e: "Dei o presente ao João." }
+        ].map(x => (
+          <div key={x.t} style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 10, padding: 18 }}>
+            <p style={{ fontSize: 13, fontWeight: 900, color: "#fff", marginBottom: 6 }}>{x.t}</p>
+            <p style={{ fontSize: 12, color: "#888", marginBottom: 8 }}>{x.d}</p>
+            <p style={{ fontSize: 12, color: RED, fontWeight: 600, fontStyle: "italic" }}>Ex: {x.e}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function SecTermosSintaticos() {
+  return (
+    <section style={{ marginBottom: 52 }}>
+      <SectionTitle number="4" title="Termos Sintáticos I" subtitle="Os complementos verbais e acessórios." />
+      <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+        {[
+          { t: "OBJETO DIRETO", d: "Complemento sem preposição obrigatória.", e: "O professor ensinou gramática." },
+          { t: "OBJETO INDIRETO", d: "Complemento com preposição obrigatória.", e: "O professor gosta de gramática." },
+          { t: "PREDICATIVO DO SUJEITO", d: "Atributo dado ao sujeito.", e: "O professor é poeta." },
+          { t: "ADJUNTO ADVERBIAL", d: "Circunstância (lugar, tempo, modo...).", e: "O professor ensina com amor." }
+        ].map(x => (
+          <div key={x.t} style={{ background: "#161616", border: `1px solid ${BORDER}`, borderLeft: `4px solid ${RED}`, borderRadius: "0 10px 10px 0", padding: 18 }}>
+            <p style={{ fontSize: 13, fontWeight: 900, color: "#fff", marginBottom: 4 }}>{x.t}</p>
+            <p style={{ fontSize: 12, color: "#888", marginBottom: 8 }}>{x.d}</p>
+            <div style={{ padding: "8px 12px", background: "#000", borderRadius: 6, fontSize: 13, color: "#ccc" }}>
+              {x.e.split(' ').map((word, i) => (
+                <span key={i} style={{ color: (i === x.e.split(' ').length - 1 || (x.t === "OBJETO INDIRETO" && i >= 3)) ? "#fff" : "inherit", fontWeight: (i === x.e.split(' ').length - 1 || (x.t === "OBJETO INDIRETO" && i >= 3)) ? 800 : 400 }}>{word} </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function SecTermosSintaticos2() {
+  return (
+    <section style={{ marginBottom: 52 }}>
+      <SectionTitle number="5" title="Termos Sintáticos II" subtitle="Relações entre nomes e funções acessórias." />
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+        {[
+          { t: "ADJUNTO ADNOMINAL", d: "Acompanha/determina o núcleo substantivo.", e: "O bom professor é admirado." },
+          { t: "COMPLEMENTO NOMINAL", d: "Complementa o sentido de nomes.", e: "O professor está orgulhoso do aluno." },
+          { t: "APOSTO", d: "Explica outro termo na mesma oração.", e: "O professor, mestre de todos nós, gosta de gramática." },
+          { t: "VOCATIVO", d: "Termo que indica chamamento.", e: "Professor, venha aqui." },
+          { t: "AGENTE DA PASSIVA", d: "Quem age na voz passiva.", e: "O professor foi homenageado pelos alunos." },
+          { t: "PREDICATIVO DO OBJETO", d: "Atributo dado ao objeto.", e: "O professor considera aquele aluno inteligente." }
+        ].map(x => (
+          <div key={x.t} style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 10, padding: 18 }}>
+            <p style={{ fontSize: 12, fontWeight: 900, color: RED, marginBottom: 6 }}>{x.t}</p>
+            <p style={{ fontSize: 12, color: "#888", marginBottom: 10, lineHeight: 1.5 }}>{x.d}</p>
+            <p style={{ fontSize: 12, color: "#fff", fontStyle: "italic" }}>Ex: {x.e}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function SecAdjuntoVsComplemento() {
+  return (
+    <section style={{ marginBottom: 52 }}>
+      <SectionTitle number="6" title="Adjunto Adnominal vs Complemento Nominal" subtitle="O terror dos concursos decodificado." />
+      <div style={{ background: "#161616", border: `1px solid ${BORDER}`, borderRadius: 12, padding: 24 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+          <div style={{ background: "rgba(79,124,255,0.05)", border: "1px solid rgba(79,124,255,0.2)", borderRadius: 10, padding: 16 }}>
+            <h4 style={{ color: "#4F7CFF", fontSize: 13, marginBottom: 12, fontWeight: 900 }}>ADJUNTO ADNOMINAL</h4>
+            <ul style={{ fontSize: 12, color: "#aaa", paddingLeft: 16, display: "flex", flexDirection: "column", gap: 8 }}>
+              <li>Acompanha substantivo <strong>concreto ou abstrato</strong>.</li>
+              <li>Tem valor <strong>ATIVO</strong> (pratica a ação).</li>
+              <li>Podem ser: Artigo, Adjetivo, Locução Adjetiva, Numeral, Pronome.</li>
+            </ul>
+          </div>
+          <div style={{ background: "rgba(34,201,122,0.05)", border: "1px solid rgba(34,201,122,0.2)", borderRadius: 10, padding: 16 }}>
+            <h4 style={{ color: "#22C97A", fontSize: 13, marginBottom: 12, fontWeight: 900 }}>COMPLEMENTO NOMINAL</h4>
+            <ul style={{ fontSize: 12, color: "#aaa", paddingLeft: 16, display: "flex", flexDirection: "column", gap: 8 }}>
+              <li>Acompanha <strong>adjetivo, advérbio ou substantivo abstrato</strong>.</li>
+              <li>Tem valor <strong>PASSIVO</strong> (sofre a ação).</li>
+              <li>Sempre vem preposicionado (Termo preposicionado).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SecEstudoSujeito() {
+  return (
+    <section style={{ marginBottom: 52 }}>
+      <SectionTitle number="7" title="Estudo do Sujeito" subtitle="Tipos de sujeito e suas particularidades." />
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+        {[
+          { t: "SUJEITO SIMPLES", d: "Apenas 1 núcleo.", e: "Os alunos estudam muito." },
+          { t: "SUJEITO COMPOSTO", d: "2 ou mais núcleos.", e: "Os alunos e os professores estudam muito." },
+          { t: "SUJEITO OCULTO", d: "Não pronunciado, mas identificado pelo contexto.", e: "(Eu) Estudo muito." },
+          { t: "SUJEITO INDETERMINADO", d: "Não se quer ou não se pode identificar.", e: "Quebraram a janela / Precisa-se de trabalhadores." }
+        ].map(x => (
+          <div key={x.t} style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 10, padding: 18 }}>
+            <p style={{ fontSize: 12, fontWeight: 900, color: "#fff", marginBottom: 6 }}>{x.t}</p>
+            <p style={{ fontSize: 12, color: "#666", marginBottom: 10 }}>{x.d}</p>
+            <p style={{ fontSize: 12, color: RED, fontStyle: "italic" }}>Ex: {x.e}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function SecSujeitoInexistente() {
+  return (
+    <section style={{ marginBottom: 52 }}>
+      <SectionTitle number="8" title="Sujeito Inexistente (Verbos Impessoais)" subtitle="Regras fundamentais para redação e gramática." />
+      <div style={{ background: RED + "0a", border: `1px solid ${RED}20`, borderRadius: 12, padding: "24px" }}>
+        <p style={{ fontSize: 12, color: "#fff", marginBottom: 16, fontWeight: 700 }}>VERBOS QUE NÃO TÊM SUJEITO (Sempre no Singular!*) :</p>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+          <div style={{ background: "#111", padding: 14, borderRadius: 8 }}>
+            <p style={{ fontSize: 11, color: RED, fontWeight: 900, marginBottom: 6 }}>HAVER</p>
+            <p style={{ fontSize: 12, color: "#999" }}>Sentido de EXISTÊNCIA ou TEMPO DECORRIDO.</p>
+            <p style={{ fontSize: 11, color: "#555", marginTop: 4 }}>Ex: Houve muitos problemas / Há anos não te vejo.</p>
+          </div>
+          <div style={{ background: "#111", padding: 14, borderRadius: 8 }}>
+            <p style={{ fontSize: 11, color: RED, fontWeight: 900, marginBottom: 6 }}>FAZER</p>
+            <p style={{ fontSize: 12, color: "#999" }}>Sentido de TEMPO DECORRIDO.</p>
+            <p style={{ fontSize: 11, color: "#555", marginTop: 4 }}>Ex: Faz dez anos / Fazia meses.</p>
+          </div>
+          <div style={{ background: "#111", padding: 14, borderRadius: 8 }}>
+            <p style={{ fontSize: 11, color: RED, fontWeight: 900, marginBottom: 6 }}>FENÔMENOS DA NATUREZA</p>
+            <p style={{ fontSize: 12, color: "#999" }}>Sentido denotativo (real).</p>
+            <p style={{ fontSize: 11, color: "#555", marginTop: 4 }}>Ex: Choveu muito em São Paulo.</p>
+          </div>
+          <div style={{ background: "#111", padding: 14, borderRadius: 8 }}>
+            <p style={{ fontSize: 11, color: RED, fontWeight: 900, marginBottom: 6 }}>INDICAÇÃO DE TEMPO</p>
+            <p style={{ fontSize: 12, color: "#999" }}>Horas, datas e distâncias.</p>
+            <p style={{ fontSize: 11, color: "#555", marginTop: 4 }}>Ex: São duas horas / É meio-dia.</p>
+          </div>
+        </div>
+        <div style={{ marginTop: 16, padding: 12, background: "#000", border: `1px solid ${BORDER}`, borderRadius: 8, fontSize: 11, color: "#666" }}>
+          *Nota: Verbos impessoais concordam com o número da hora/data (ex: É uma hora / São dez horas).
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SecConcordanciaVerbal() {
+  return (
+    <section style={{ marginBottom: 52 }}>
+      <SectionTitle number="9" title="Concordância Verbal" subtitle="A relação de concordância entre o sujeito e o verbo." />
+      <div style={{ background: "#161616", border: `1px solid ${BORDER}`, borderRadius: 10, padding: "20px", marginBottom: 18 }}>
+        <p style={{ fontSize: 13, color: "#ccc", lineHeight: 1.6, margin: "0 0 16px" }}>
+          Regra Geral: O verbo deve concordar com o <strong style={{ color: RED }}>núcleo do sujeito</strong> em número e pessoa.
+        </p>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 16 }}>
+          <div style={{ background: "rgba(255,255,255,0.03)", padding: 14, borderRadius: 8, border: `1px solid ${BORDER}` }}>
+            <p style={{ fontSize: 13, color: "#fff", marginBottom: 6 }}>O menino comeu o bolo.</p>
+            <p style={{ fontSize: 11, color: "#666" }}>Singular (menino) → Verbo no Singular</p>
+          </div>
+          <div style={{ background: "rgba(255,255,255,0.03)", padding: 14, borderRadius: 8, border: `1px solid ${BORDER}` }}>
+            <p style={{ fontSize: 13, color: "#fff", marginBottom: 6 }}>Os meninos comeram o bolo.</p>
+            <p style={{ fontSize: 11, color: "#666" }}>Plural (meninos) → Verbo no Plural</p>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        <Callout icon="⚠️" title="Perigo! Verbo Antes do Sujeito" color="#F59E0B">
+          <p style={{ fontSize: 13, color: "#fff" }}>Existe muitos problemas. (❌ Errado)</p>
+          <p style={{ fontSize: 13, color: "#fff" }}><strong>Existem</strong> muitos problemas. (✅ Correto)</p>
+        </Callout>
+
+        <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 10, padding: 18 }}>
+          <p style={{ fontSize: 13, fontWeight: 900, color: RED, marginBottom: 12 }}>EXPRESSÕES PARTITIVAS</p>
+          <p style={{ fontSize: 12, color: "#888", marginBottom: 10 }}>(A maioria de, Grande parte de, etc. + Plural)</p>
+          <p style={{ fontSize: 13, color: "#fff" }}>A maioria das pessoas <strong>gosta/gostam</strong> de gramática.</p>
+          <p style={{ fontSize: 11, color: "#555", marginTop: 4 }}>*Ambas as formas são aceitas.</p>
+        </div>
+
+        <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 10, padding: 18 }}>
+          <p style={{ fontSize: 13, fontWeight: 900, color: RED, marginBottom: 12 }}>ESTADOS UNIDOS / NOMES NO PLURAL</p>
+          <div style={{ fontSize: 13, color: "#fff", display: "flex", flexDirection: "column", gap: 6 }}>
+            <p>Estados Unidos <strong>é</strong> uma nação poderosa. (Sem artigo → Singular)</p>
+            <p><strong>Os</strong> Estados Unidos <strong>são</strong> uma potência. (Com artigo → Plural)</p>
+          </div>
+        </div>
+
+        <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 10, padding: 18 }}>
+          <p style={{ fontSize: 13, fontWeight: 900, color: RED, marginBottom: 12 }}>UM DOS QUE</p>
+          <p style={{ fontSize: 13, color: "#fff" }}>Um dos que <strong>participou/participaram</strong>...</p>
+          <p style={{ fontSize: 11, color: "#555", marginTop: 4 }}>*Preferencialmente no plural, mas o singular é aceito.</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SecConcordanciaNominal() {
+  return (
+    <section style={{ marginBottom: 52 }}>
+      <SectionTitle number="10" title="Concordância Nominal" subtitle="A relação entre o substantivo e seus determinantes." />
+      <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 12, padding: "24px" }}>
+        <p style={{ fontSize: 13, color: "#ccc", lineHeight: 1.6, marginBottom: 20 }}>
+          Diz respeito à relação do <strong>substantivo</strong> com seus determinantes (artigo, adjetivo, pronome, numeral).
+        </p>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+          <div style={{ background: "#111", padding: 14, borderRadius: 8 }}>
+            <p style={{ fontSize: 13, color: "#fff" }}>O menino lindo <strong>comeu</strong> o bolo.</p>
+          </div>
+          <div style={{ background: "#111", padding: 14, borderRadius: 8 }}>
+            <p style={{ fontSize: 13, color: "#fff" }}>Os meninos lindos <strong>comeram</strong> os bolos.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ marginTop: 24 }}>
+        <p style={{ fontSize: 14, fontWeight: 800, color: "#fff", marginBottom: 16 }}>PLURAL DOS SUBSTANTIVOS COMPOSTOS</p>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+          <div style={{ background: "#161616", border: `1px solid ${BORDER}`, borderRadius: 10, padding: 18 }}>
+            <p style={{ fontSize: 12, fontWeight: 900, color: RED, marginBottom: 10 }}>CLASSES QUE VARIAM (Vão ao plural)</p>
+            <p style={{ fontSize: 12, color: "#888" }}>Substantivos, Adjetivos, Pronomes, Numerais.</p>
+            <p style={{ fontSize: 12, color: "#fff", marginTop: 10, fontStyle: "italic" }}>Ex: Beija-flores, Guardas-civis.</p>
+          </div>
+          <div style={{ background: "#161616", border: `1px solid ${BORDER}`, borderRadius: 10, padding: 18 }}>
+            <p style={{ fontSize: 12, fontWeight: 900, color: "#444", marginBottom: 10 }}>CLASSES QUE NÃO VARIAM (Ficam no singular)</p>
+            <p style={{ fontSize: 12, color: "#888" }}>Advérbios, Verbos, Prefixos.</p>
+            <p style={{ fontSize: 12, color: "#fff", marginTop: 10, fontStyle: "italic" }}>Ex: Guarda-roupas (Guarda é verbo).</p>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ marginTop: 24 }}>
+        <p style={{ fontSize: 14, fontWeight: 800, color: "#fff", marginBottom: 16 }}>CASOS ESPECIAIS: É BOM / É PRECISO / É PROIBIDO</p>
+        <div style={{ background: "#111", border: `1px solid ${BORDER}`, borderRadius: 10, padding: 18 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+            <div>
+              <p style={{ fontSize: 12, color: "#666", marginBottom: 6 }}>Sem determinante (Invariável):</p>
+              <p style={{ fontSize: 13, color: "#fff" }}>Maçã é <strong>bom</strong> para a saúde.</p>
+              <p style={{ fontSize: 13, color: "#fff" }}>É <strong>proibido</strong> entrada.</p>
+            </div>
+            <div>
+              <p style={{ fontSize: 12, color: "#666", marginBottom: 6 }}>Com determinante (Varia):</p>
+              <p style={{ fontSize: 13, color: "#fff" }}><strong>A</strong> maçã é <strong>boa</strong> para a saúde.</p>
+              <p style={{ fontSize: 13, color: "#fff" }}>É <strong>proibida a</strong> entrada.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SecPeriodoComposto() {
+  return (
+    <section style={{ marginBottom: 52 }}>
+      <SectionTitle number="11" title="O Período Composto" subtitle="Coordenação vs Subordinação." />
+      <div style={{ background: "#161616", border: `1px solid ${BORDER}`, borderRadius: 10, padding: "24px" }}>
+        <p style={{ fontSize: 13, color: "#ccc", lineHeight: 1.6, marginBottom: 20 }}>
+          O período composto é aquele formado por duas ou mais orações.
+        </p>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+          <div style={{ background: "rgba(192,57,43,0.05)", border: "1px solid rgba(192,57,43,0.15)", borderRadius: 8, padding: 16 }}>
+            <p style={{ fontSize: 13, fontWeight: 800, color: RED, marginBottom: 8 }}>COORDENAÇÃO</p>
+            <p style={{ fontSize: 12, color: "#888" }}>Orações independentes sintaticamente. Fazem sentido sozinhas.</p>
+            <p style={{ fontSize: 12, color: "#fff", marginTop: 8 }}>Ex: Fui à praia <strong>e</strong> tomei sorvete.</p>
+          </div>
+          <div style={{ background: "rgba(255,255,255,0.03)", border: `1px solid ${BORDER}`, borderRadius: 8, padding: 16 }}>
+            <p style={{ fontSize: 13, fontWeight: 800, color: "#fff", marginBottom: 8 }}>SUBORDINAÇÃO</p>
+            <p style={{ fontSize: 12, color: "#888" }}>Orações dependentes. Uma exerce função sintática em relação à outra.</p>
+            <p style={{ fontSize: 12, color: "#fff", marginTop: 8 }}>Ex: Quero <strong>que você seja feliz</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SecSubstantivas() {
+  return (
+    <section style={{ marginBottom: 52 }}>
+      <SectionTitle number="12" title="Orações Subordinadas Substantivas" subtitle="Exercem função de substantivo." />
+      <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 12, padding: "20px" }}>
+        <Callout icon="💡" title="Truque de Mestre: O Método ISSO" color="#3B82F6">
+          <p style={{ fontSize: 13, color: "#fff" }}>
+            As orações substantivas podem ser substituídas pela palavra <strong>"ISSO"</strong>.
+          </p>
+          <p style={{ fontSize: 13, color: "#fff", marginTop: 8 }}>
+            É preciso <strong>que você estude</strong>. → É preciso <strong>ISSO</strong>.
+          </p>
+        </Callout>
+
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginTop: 24 }}>
+          {[
+            { nome: "Subjetiva", func: "Sujeito", ex: "É necessário que todos venham." },
+            { nome: "Objetiva Direta", func: "Objeto Direto", ex: "Desejo que tenhas sorte." },
+            { nome: "Objetiva Indireta", func: "Objeto Indireto", ex: "Não me oponho a que você vá." },
+            { nome: "Completiva Nominal", func: "Compl. Nominal", ex: "Tenho medo de que ele falhe." },
+            { nome: "Apositiva", func: "Aposto", ex: "Só peço uma coisa: que seja honesto." },
+            { nome: "Predicativa", func: "Predicativo", ex: "A verdade é que eu te amo." },
+          ].map((item, idx) => (
+            <div key={idx} style={{ background: "#111", padding: 14, borderRadius: 8, border: "1px solid rgba(255,255,255,0.04)" }}>
+              <p style={{ fontSize: 11, fontWeight: 800, color: RED, textTransform: "uppercase", marginBottom: 4 }}>{item.nome}</p>
+              <p style={{ fontSize: 10, color: "#555", marginBottom: 8 }}>Função: {item.func}</p>
+              <p style={{ fontSize: 12, color: "#fff" }}>{item.ex}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SecAdjetivas() {
+  return (
+    <section style={{ marginBottom: 52 }}>
+      <SectionTitle number="13" title="Orações Subordinadas Adjetivas" subtitle="Exercem função de adjetivo." />
+      <div style={{ background: "#161616", border: `1px solid ${BORDER}`, borderRadius: 10, padding: "20px" }}>
+        <p style={{ fontSize: 13, color: "#ccc", lineHeight: 1.6, marginBottom: 20 }}>
+          Sempre iniciadas por <strong>Pronome Relativo</strong> (Que, o qual, no qual).
+        </p>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          <div style={{ background: "#111", borderLeft: `4px solid ${RED}`, padding: 18, borderRadius: "0 8px 8px 0" }}>
+            <p style={{ fontSize: 13, fontWeight: 900, color: "#fff", marginBottom: 6 }}>RESTRITIVA (Sem vírgula)</p>
+            <p style={{ fontSize: 12, color: "#888", marginBottom: 10 }}>Restringe o sentido a uma parte específica do grupo.</p>
+            <p style={{ fontSize: 13, color: "#fff" }}>Os alunos <strong>que estudam muito</strong> passarão.</p>
+          </div>
+
+          <div style={{ background: "#111", borderLeft: "4px solid #444", padding: 18, borderRadius: "0 8px 8px 0" }}>
+            <p style={{ fontSize: 13, fontWeight: 900, color: "#fff", marginBottom: 6 }}>EXPLICATIVA (Com vírgula)</p>
+            <p style={{ fontSize: 12, color: "#888", marginBottom: 10 }}>Refere-se a todo o grupo, adicionando uma informação extra.</p>
+            <p style={{ fontSize: 13, color: "#fff" }}>O homem, <strong>que é mortal</strong>, deve aproveitar a vida.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SecAdverbiais() {
+  const adverbiais = [
+    { tipo: "Causal", ex: "Já que não veio, comemos tudo.", conj: "porque, já que, visto que" },
+    { tipo: "Concessiva", ex: "Embora chovesse, fomos à praia.", conj: "embora, conquanto, mesmo que" },
+    { tipo: "Condicional", ex: "Se você for, eu também vou.", conj: "se, caso, desde que" },
+    { tipo: "Conformativa", ex: "Fiz como você pediu.", conj: "como, conforme, segundo" },
+    { tipo: "Comparativa", ex: "Ele é mais forte do que parece.", conj: "como, tal qual, do que" },
+    { tipo: "Consecutiva", ex: "Bebeu tanto que passou mal.", conj: "que (precedido de tal, tão, tanto)" },
+    { tipo: "Final", ex: "Estude para que passe.", conj: "para que, a fim de que" },
+    { tipo: "Temporal", ex: "Quando saí, começou a chover.", conj: "quando, logo que, assim que" },
+    { tipo: "Proporcional", ex: "À medida que estudo, aprendo.", conj: "à medida que, ao passo que" },
+  ];
+
+  return (
+    <section style={{ marginBottom: 52 }}>
+      <SectionTitle number="14" title="Orações Subordinadas Adverbiais" subtitle="Exercem função de advérbio (circunstância)." />
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+        {adverbiais.map((a, idx) => (
+          <div key={idx} style={{ background: "#161616", border: `1px solid ${BORDER}`, borderRadius: 10, padding: 16 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
+              <p style={{ fontSize: 12, fontWeight: 900, color: RED }}>{a.tipo.toUpperCase()}</p>
+              <span style={{ fontSize: 9, color: "#444" }}>#{idx + 1}</span>
+            </div>
+            <p style={{ fontSize: 12, color: "#fff", marginBottom: 8, lineHeight: 1.4 }}>{a.ex}</p>
+            <p style={{ fontSize: 10, color: "#555" }}>Conectivos: {a.conj}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function SecCoordenadas() {
+  const coordenadas = [
+    { t: "Aditivas", ex: "e, nem, não só... mas também", frases: ["Mãe foi ao shopping e comprou roupas.", "Pai não só foi ao bar como bebeu todas."] },
+    { t: "Adversativas", ex: "mas, porém, contudo, todavia", frases: ["Foi ao shopping, mas não comprou nada.", "Estudou muito, contudo não passou."] },
+    { t: "Alternativas", ex: "ou... ou, ora... ora, quer... quer", frases: ["Ou vou à praia, ou ao shopping.", "Ora quer estudar, ora quer dormir."] },
+    { t: "Conclusivas", ex: "logo, portanto, por isso, pois (deslocado)", frases: ["Estudei muito, portanto passei.", "Fui ao shopping, logo comprei roupa."] },
+    { t: "Explicativas", ex: "porque, que, pois (no início)", frases: ["Vá ao shopping, que quero te ver lá.", "Chorava muito, pois estava doente."] },
+  ];
+
+  return (
+    <section style={{ marginBottom: 52 }}>
+      <SectionTitle number="15" title="Orações Coordenadas" subtitle="Independência sintática e conectivos." />
+      <div style={{ background: "#161616", border: `1px solid ${BORDER}`, borderRadius: 10, padding: "20px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+          {coordenadas.map((c, i) => (
+            <div key={i} style={{ background: "rgba(255,255,255,0.02)", padding: 16, borderRadius: 8, border: `1px solid ${BORDER}` }}>
+              <p style={{ fontSize: 13, fontWeight: 800, color: RED, marginBottom: 8 }}>{c.t.toUpperCase()}</p>
+              <p style={{ fontSize: 11, color: "#888", marginBottom: 12 }}>Conectivos: {c.ex}</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                {c.frases.map((f, j) => <p key={j} style={{ fontSize: 13, color: "#fff" }}>• {f}</p>)}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ marginTop: 24, display: "flex", flexDirection: "column", gap: 12 }}>
+          <Callout icon="⚠️" title="Uso do POIS" color="#F59E0B">
+            <p style={{ fontSize: 12, color: "#fff" }}><strong>Conclusivo:</strong> Depois do verbo e deslocado. (Ex: Estudei; passei, <strong>pois</strong>.)</p>
+            <p style={{ fontSize: 12, color: "#fff" }}><strong>Explicativo:</strong> No começo da oração. (Ex: Estude, <strong>pois</strong> a prova é amanhã.)</p>
+          </Callout>
+          <Callout icon="⚠️" title="Uso do E" color="#F59E0B">
+            <p style={{ fontSize: 12, color: "#fff" }}><strong>Aditivo:</strong> Sentido de soma. (Ex: Estudava <strong>e</strong> trabalhava.)</p>
+            <p style={{ fontSize: 12, color: "#fff" }}><strong>Adversativo:</strong> Sentido de MAS. (Ex: Estudou muito <strong>e</strong> não passou.)</p>
+          </Callout>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SecParticulasQueSe() {
+  return (
+    <section style={{ marginBottom: 52 }}>
+      <SectionTitle number="16" title="As Partículas QUE e SE" subtitle="Funções morfos sintáticas essenciais." />
+
+      <div style={{ marginBottom: 24 }}>
+        <p style={{ fontSize: 14, fontWeight: 800, color: RED, marginBottom: 16 }}>FUNÇÕES DO "QUE"</p>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+          <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 10, padding: 16 }}>
+            <p style={{ fontSize: 12, fontWeight: 800, color: "#fff", marginBottom: 6 }}>Pronome Relativo</p>
+            <p style={{ fontSize: 11, color: "#555", marginBottom: 8 }}>Substituível por "o qual". Inicia Oração Adjetiva.</p>
+            <p style={{ fontSize: 12, color: "#ccc" }}>O aluno <strong>que</strong> estuda passa.</p>
+          </div>
+          <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 10, padding: 16 }}>
+            <p style={{ fontSize: 12, fontWeight: 800, color: "#fff", marginBottom: 6 }}>Conjunção Integrante</p>
+            <p style={{ fontSize: 11, color: "#555", marginBottom: 8 }}>Substituível por "ISSO". Inicia Oração Substantiva.</p>
+            <p style={{ fontSize: 12, color: "#ccc" }}>Disse <strong>que</strong> viria.</p>
+          </div>
+          <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 10, padding: 16 }}>
+            <p style={{ fontSize: 12, fontWeight: 800, color: "#fff", marginBottom: 6 }}>Partícula Expletiva</p>
+            <p style={{ fontSize: 11, color: "#555", marginBottom: 8 }}>Pode ser retirada sem prejuízo gramatical.</p>
+            <p style={{ fontSize: 12, color: "#ccc" }}>Quase <strong>que</strong> caí.</p>
+          </div>
+          <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 10, padding: 16 }}>
+            <p style={{ fontSize: 12, fontWeight: 800, color: "#fff", marginBottom: 6 }}>Consecutiva</p>
+            <p style={{ fontSize: 11, color: "#555", marginBottom: 8 }}>Ideia de consequência (tão... que).</p>
+            <p style={{ fontSize: 12, color: "#ccc" }}>Gritou tanto <strong>que</strong> ficou rouco.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p style={{ fontSize: 14, fontWeight: 800, color: RED, marginBottom: 16 }}>FUNÇÕES DO "SE"</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          <div style={{ background: "#111", borderLeft: `4px solid ${RED}`, padding: 16, borderRadius: "0 8px 8px 0" }}>
+            <p style={{ fontSize: 12, fontWeight: 800, color: "#fff", marginBottom: 4 }}>Partícula Apassivadora (PA)</p>
+            <p style={{ fontSize: 11, color: "#555", marginBottom: 6 }}>Acompanha VTD/VTDI. O objeto vira sujeito.</p>
+            <p style={{ fontSize: 12, color: "#ccc" }}>Alugam-<strong>se</strong> casas. (Casas são alugadas)</p>
+          </div>
+          <div style={{ background: "#111", borderLeft: "4px solid #444", padding: 16, borderRadius: "0 8px 8px 0" }}>
+            <p style={{ fontSize: 12, fontWeight: 800, color: "#fff", marginBottom: 4 }}>Índice de Indeterminação do Sujeito (IIS)</p>
+            <p style={{ fontSize: 11, color: "#555", marginBottom: 6 }}>Acompanha VTI/VI/VL. Verbo sempre no singular.</p>
+            <p style={{ fontSize: 12, color: "#ccc" }}>Precisa-<strong>se</strong> de funcionários.</p>
+          </div>
+          <div style={{ background: "#111", borderLeft: "4px solid #222", padding: 16, borderRadius: "0 8px 8px 0" }}>
+            <p style={{ fontSize: 12, fontWeight: 800, color: "#fff", marginBottom: 4 }}>Conjunção Condicional</p>
+            <p style={{ fontSize: 12, color: "#ccc" }}><strong>Se</strong> você for, eu também vou.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SecCrase() {
+  return (
+    <section style={{ marginBottom: 52 }}>
+      <SectionTitle number="17" title="Estudo da Crase" subtitle="A fusão da preposição A com o artigo A." />
+
+      <div style={{ background: "#161616", border: `1px solid ${BORDER}`, borderRadius: 10, padding: "24px", textAlign: "center", marginBottom: 24 }}>
+        <p style={{ fontSize: 32, fontWeight: 900, color: RED, marginBottom: 8 }}>a + a = à</p>
+        <p style={{ fontSize: 12, color: "#666" }}>Preposição (Pedida pelo verbo) + Artigo (Aceito pelo substantivo)</p>
+      </div>
+
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 24 }}>
+        <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 10, padding: 18 }}>
+          <p style={{ fontSize: 12, fontWeight: 900, color: RED, marginBottom: 10 }}>CRASES OBRIGATÓRIAS</p>
+          <ul style={{ fontSize: 12, color: "#ccc", paddingLeft: 16, display: "flex", flexDirection: "column", gap: 6 }}>
+            <li>Locuções femininas (À noite, À medida que).</li>
+            <li>Horas determinadas (Às 15h).</li>
+            <li>Expressão "À moda de" (mesmo implícita).</li>
+          </ul>
+        </div>
+        <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 10, padding: 18 }}>
+          <p style={{ fontSize: 12, fontWeight: 900, color: "#444", marginBottom: 10 }}>CRASES FACULTATIVAS</p>
+          <ul style={{ fontSize: 12, color: "#ccc", paddingLeft: 16, display: "flex", flexDirection: "column", gap: 6 }}>
+            <li>Antes de nomes próprios femininos.</li>
+            <li>Depois da preposição ATÉ.</li>
+            <li>Antes de pronome possessivo feminino singular.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style={{ background: "#111", border: `1px solid ${BORDER}`, borderRadius: 10, padding: 20 }}>
+        <p style={{ fontSize: 13, fontWeight: 800, color: "#fff", marginBottom: 14 }}>MACETE PARA LUGARES</p>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+          <div style={{ background: "rgba(192,57,43,0.05)", padding: 14, borderRadius: 8 }}>
+            <p style={{ fontSize: 12, color: RED, fontWeight: 700 }}>Se vou A e volto DA...</p>
+            <p style={{ fontSize: 14, color: "#fff", marginTop: 4 }}>CRASE HÁ!</p>
+            <p style={{ fontSize: 11, color: "#555", marginTop: 4 }}>Vou à Bahia (Volto da Bahia)</p>
+          </div>
+          <div style={{ background: "rgba(255,255,255,0.02)", padding: 14, borderRadius: 8 }}>
+            <p style={{ fontSize: 12, color: "#444", fontWeight: 700 }}>Se vou A e volto DE...</p>
+            <p style={{ fontSize: 14, color: "#fff", marginTop: 4 }}>CRASE PRA QUÊ?</p>
+            <p style={{ fontSize: 11, color: "#555", marginTop: 4 }}>Vou a Natal (Volto de Natal)</p>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ marginTop: 24 }}>
+        <Callout icon="⚖️" title="Paralelismo Sintático" color="#3B82F6">
+          <p style={{ fontSize: 12, color: "#fff" }}>A aula vai <strong>das</strong> 19h <strong>às</strong> 22h. (✅ ADEQUADO)</p>
+          <p style={{ fontSize: 12, color: "#fff" }}>A aula vai <strong>de</strong> 19h <strong>a</strong> 22h. (✅ ADEQUADO)</p>
+          <p style={{ fontSize: 12, color: "#fff" }}>A aula vai <strong>de</strong> 19h <strong>às</strong> 22h. (❌ INADEQUADO)</p>
+        </Callout>
+      </div>
+    </section>
+  );
+}
+
+function SecPontuacao() {
+  const commaRules = [
+    { t: "Separar Aposto", ex: "Recife, a Veneza brasileira, desenvolveu-se muito." },
+    { t: "Isolar Vocativo", ex: "Marcos, estamos à sua espera!" },
+    { t: "Antes de Conetivos", ex: "Estudou muito, logo passou no concurso." },
+    { t: "Termos Explicativos", ex: "isto é, por exemplo, ou seja, digo." },
+    { t: "Adjuntos Adverbiais", ex: "Ontem, o garoto estudou Português." },
+  ];
+
+  return (
+    <section style={{ marginBottom: 52 }}>
+      <SectionTitle number="18" title="Estudo da Pontuação" subtitle="Pausas, entonação e clareza sintática." />
+
+      <div style={{ marginBottom: 24 }}>
+        <Callout icon="🚫" title="REGRA DE OURO: Ordem S-V-C" color="#C0392B">
+          <p style={{ fontSize: 14, color: "#fff", fontWeight: 700 }}>NÃO se usa vírgula para separar a ordem DIRETA!</p>
+          <p style={{ fontSize: 13, color: "#ccc", marginTop: 8 }}>[Sujeito] + [Verbo] + [Complementos]</p>
+          <p style={{ fontSize: 12, color: "#fff", marginTop: 8 }}>Os professores do cursinho, estão preparados. (❌ PROIBIDO)</p>
+        </Callout>
+      </div>
+
+      <div style={{ background: "#161616", border: `1px solid ${BORDER}`, borderRadius: 10, padding: "20px", marginBottom: 24 }}>
+        <p style={{ fontSize: 14, fontWeight: 800, color: RED, marginBottom: 16 }}>CASOS DE USO DA VÍRGULA</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          {commaRules.map((r, i) => (
+            <div key={i} style={{ background: "rgba(255,255,255,0.02)", padding: 12, borderRadius: 8, border: `1px solid ${BORDER}` }}>
+              <p style={{ fontSize: 12, fontWeight: 800, color: "#fff", marginBottom: 4 }}>{i + 1}. {r.t}</p>
+              <p style={{ fontSize: 12, color: "#ccc" }}>{r.ex}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+        <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 10, padding: 18 }}>
+          <p style={{ fontSize: 13, fontWeight: 900, color: RED, marginBottom: 12 }}>OUTROS SINAIS</p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            <div>
+              <p style={{ fontSize: 11, fontWeight: 800, color: "#fff" }}>PONTO E VÍRGULA (;)</p>
+              <p style={{ fontSize: 11, color: "#666" }}>Separa itens de uma lista ou orações coordenadas extensas.</p>
+            </div>
+            <div>
+              <p style={{ fontSize: 11, fontWeight: 800, color: "#fff" }}>DOIS PONTOS (:)</p>
+              <p style={{ fontSize: 11, color: "#666" }}>Introduz uma fala, explicação ou enumeração.</p>
+            </div>
+            <div>
+              <p style={{ fontSize: 11, fontWeight: 800, color: "#fff" }}>TRAVESSÃO (—)</p>
+              <p style={{ fontSize: 11, color: "#666" }}>Isola termos explicativos ou enfatiza informações.</p>
+            </div>
+          </div>
+        </div>
+        <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 10, padding: 18 }}>
+          <p style={{ fontSize: 13, fontWeight: 900, color: RED, marginBottom: 12 }}>CASOS ESPECIAIS</p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            <div>
+              <p style={{ fontSize: 11, fontWeight: 800, color: "#fff" }}>ASPAS ("")</p>
+              <p style={{ fontSize: 11, color: "#666" }}>Citações, estrangeirismos, ironia ou gírias.</p>
+            </div>
+            <div>
+              <p style={{ fontSize: 11, fontWeight: 800, color: "#fff" }}>ELIPSE / ZEUGMA</p>
+              <p style={{ fontSize: 11, color: "#666" }}>Vírgula indica omissão de um termo. Ex: "Eu gosto de café; ele, de chá."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const syntaxQuiz = [
+  { id: 1, pergunta: "Na frase 'Bom dia!', temos qual estrutura sintática?", opcoes: ["Oração absoluta", "Período simples", "Frase sem verbo", "Período composto"], correta: 2, explicacao: "Uma frase sem verbo é apenas um enunciado com sentido. Para ser oração, precisa de um verbo." },
+  { id: 2, pergunta: "Qual é a função sintática de 'gramática' em 'O professor gosta de gramática'?", opcoes: ["Objeto Direto", "Objeto Indireto", "Complemento Nominal", "Adjunto Adnominal"], correta: 1, explicacao: "O verbo 'gostar' exige a preposição 'de'. Portanto, seu complemento é um Objeto Indireto." },
+  { id: 3, pergunta: "Na frase 'Os Estados Unidos ___ a maior potência mundial', qual a forma correta?", opcoes: ["é", "são", "foi", "será"], correta: 1, explicacao: "Nomes no plural acompanhados de artigo (Os) exigem o verbo no plural." },
+  { id: 4, pergunta: "Qual oração pode ser substituída pela palavra 'ISSO'?", opcoes: ["Subordinada Adjetiva", "Subordinada Adverbial", "Subordinada Substantiva", "Coordenada Sindética"], correta: 2, explicacao: "O 'macete' do ISSO funciona para identificar Orações Subordinadas Substantivas." },
+  { id: 5, pergunta: "Qual a diferença sintática entre 'Alunos que estudam passam' e 'Alunos, que estudam, passam'?", opcoes: ["Nenhuma", "A primeira restringe o grupo; a segunda explica uma característica de todos", "A primeira é explicativa; a segunda é restritiva", "A primeira tem vírgula escondida"], correta: 1, explicacao: "A ausência de vírgulas indica que apenas 'os alunos que estudam' passam (restrição). Com vírgulas, diz-se que 'todos estudam e por isso passam' (explicação)." },
+  { id: 6, pergunta: "Em 'Fui eu quem ___', qual a concordância correta?", opcoes: ["fez", "fiz", "Ambas estão corretas", "fizeram"], correta: 2, explicacao: "Com o pronome 'quem', o verbo pode concordar com o antecedente (eu fiz) ou ficar na 3ª pessoa do singular (fez)." },
+  { id: 7, pergunta: "Em 'Vou ___ cidade de Natal', o uso da crase é:", opcoes: ["Obrigatório", "Proibido", "Facultativo", "Depende do contexto"], correta: 1, explicacao: "Se vou A e volto DE (Natal), crase pra quê? Não se usa crase antes de nomes de cidades que não admitem artigo." },
+  { id: 8, pergunta: "Na frase 'Alugam-se casas', a partícula SE exerce função de:", opcoes: ["Índice de Indeterminação do Sujeito", "Partícula Apassivadora", "Conjunção Condicional", "Pronome Reflexivo"], correta: 1, explicacao: "Quem aluga, aluga algo (VTD). Com o SE, o objeto (casas) vira sujeito paciente (casas são alugadas). É uma PA." },
+  { id: 9, pergunta: "FUNCERN 2019: No trecho 'poderemos assistir à queda de um deles', a crase ocorre por:", opcoes: ["Exigência de artigo do termo regente e preposição do termo regido", "Exigência de preposição do termo regente (assistir) e artigo do termo regido (queda)", "Uso facultativo antes de substantivo feminino", "Trata-se de uma locução adverbial de tempo"], correta: 1, explicacao: "O verbo 'assistir' (no sentido de ver/presenciar) exige a preposição 'A', e o substantivo 'queda' admite o artigo feminino 'A'. A + A = À." },
+  { id: 10, pergunta: "Na frase 'Os alunos do IF, estão focados', a vírgula está incorreta porque:", opcoes: ["Separa o sujeito do verbo", "Separa o verbo do complemento", "Separa o adjunto adnominal do núcleo", "Não há erro na frase"], correta: 0, explicacao: "A regra de ouro da pontuação proíbe separar o Sujeito do Verbo (Ordem S-V-C) por vírgula." },
+];
+
+function SecSyntaxQuiz() {
+  const [respostas, setRespostas] = useState({});
+  const [revelados, setRevelados] = useState({});
+
+  return (
+    <section style={{ marginBottom: 52 }}>
+      <SectionTitle number="9" title="Quiz de Fixação" subtitle="Teste seus conhecimentos sobre sintaxe." />
+      <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+        {syntaxQuiz.map(q => {
+          const resp = respostas[q.id];
+          const rev = revelados[q.id];
+          const acertou = resp === q.correta;
+
+          return (
+            <div key={q.id} style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 12, padding: 24 }}>
+              <p style={{ fontSize: 14, fontWeight: 700, color: "#fff", marginBottom: 16 }}>{q.id}. {q.pergunta}</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 16 }}>
+                {q.opcoes.map((op, oi) => {
+                  const border = rev ? (oi === q.correta ? "#22C97A40" : oi === resp ? "#C0392B40" : BORDER) : (resp === oi ? RED + "40" : BORDER);
+                  const bg = rev ? (oi === q.correta ? "#22C97A10" : oi === resp ? "#C0392B10" : "transparent") : (resp === oi ? RED + "08" : "transparent");
+                  const cor = rev ? (oi === q.correta ? "#22C97A" : oi === resp ? RED : "#aaa") : (resp === oi ? RED : "#aaa");
+
+                  return (
+                    <button key={oi} onClick={() => !rev && setRespostas(r => ({ ...r, [q.id]: oi }))}
+                      style={{ width: "100%", padding: "10px 12px", background: bg, border: `1px solid ${border}`, borderRadius: 7, color: cor, fontSize: 12, textAlign: "left", cursor: rev ? "default" : "pointer", fontFamily: "inherit", transition: "all 0.15s", display: "flex", alignItems: "center", gap: 8 }}>
+                      <span style={{ width: 20, height: 20, borderRadius: "50%", flexShrink: 0, background: "rgba(255,255,255,0.05)", border: `1px solid ${border}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 700, color: cor }}>
+                        {rev && oi === q.correta ? "✓" : rev && oi === resp && oi !== q.correta ? "✗" : String.fromCharCode(65 + oi)}
+                      </span>
+                      {op}
+                    </button>
+                  );
+                })}
+              </div>
+              {resp !== undefined && !rev && (
+                <button onClick={() => setRevelados(r => ({ ...r, [q.id]: true }))}
+                  style={{ padding: "8px 18px", borderRadius: 7, background: RED, border: "none", color: "#fff", fontSize: 12, fontWeight: 700, cursor: "pointer", fontFamily: "inherit", transition: "opacity 0.15s" }}
+                  onMouseEnter={e => e.currentTarget.style.opacity = "0.85"} onMouseLeave={e => e.currentTarget.style.opacity = "1"}
+                >Confirmar resposta</button>
+              )}
+              {rev && (
+                <div style={{ background: "#161616", border: `1px solid ${BORDER}`, borderLeft: `3px solid ${acertou ? "#22C97A" : "#F59E0B"}`, borderRadius: "0 8px 8px 0", padding: "10px 12px", marginTop: 4 }}>
+                  <p style={{ fontSize: 11, fontWeight: 800, color: acertou ? "#22C97A" : "#F59E0B", margin: "0 0 4px" }}>{acertou ? "✓ Correto!" : "✗ Incorreto"} — Explicação</p>
+                  <p style={{ fontSize: 12, color: "#bbb", margin: 0, lineHeight: 1.6 }}>{q.explicacao}</p>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function LessonSintaxe({ modulo, area, onHome, onUpdateProgress }) {
+  const [activeSec, setActiveSec] = useState(0);
+  const [showSidebar, setShowSidebar] = useState(false);
+  const [completedSections, setCompletedSections] = useState(new Set([0]));
+
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+
+  const handleSectionClick = (i) => {
+    setActiveSec(i);
+    setShowSidebar(false);
+    document.getElementById(`sec-syn-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    // Update progress tracking
+    if (onUpdateProgress && !completedSections.has(i)) {
+      const nextSet = new Set(completedSections).add(i);
+      setCompletedSections(nextSet);
+      const total = syntaxSectionsNames.length; // Including Quiz
+      const progress = Math.round((nextSet.size / total) * 100);
+      onUpdateProgress(modulo.slug, progress);
+    }
+  };
+
+  return (
+    <div className="lesson-container" style={{ display: "flex", flex: 1, minHeight: 0 }}>
+      <button onClick={() => setShowSidebar(!showSidebar)} style={{ position: "fixed", bottom: 20, right: 20, zIndex: 300, width: 50, height: 50, borderRadius: "50%", background: "#C0392B", color: "#fff", border: "none", boxShadow: "0 4px 12px rgba(0,0,0,0.5)", display: "none", alignItems: "center", justifyContent: "center", fontSize: 20, cursor: "pointer" }} className="mobile-sidebar-toggle">
+        {showSidebar ? "×" : "☰"}
+      </button>
+
+      <aside className={`lesson-sidebar ${showSidebar ? "open" : ""}`} style={{ width: 210, flexShrink: 0, borderRight: "1px solid rgba(255,255,255,0.06)", padding: "20px 14px", position: "sticky", top: 52, height: "calc(100vh - 52px)", overflowY: "auto" }}>
+        <p style={{ fontSize: 9, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", color: "#444", marginBottom: 10 }}>Neste módulo</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+          {syntaxSectionsNames.map((s, i) => (
+            <button key={i} onClick={() => handleSectionClick(i)}
+              style={{ width: "100%", padding: "7px 9px", borderRadius: 6, background: activeSec === i ? "#C0392B15" : "transparent", border: `1px solid ${activeSec === i ? "#C0392B30" : "transparent"}`, color: activeSec === i ? "#ddd" : "#555", fontSize: 11, fontWeight: activeSec === i ? 700 : 400, textAlign: "left", cursor: "pointer", fontFamily: "inherit", display: "flex", alignItems: "center", gap: 7, transition: "all 0.15s" }}>
+              <span style={{ width: 16, height: 16, borderRadius: "50%", flexShrink: 0, background: activeSec === i ? "#C0392B30" : "#222", border: `1px solid ${activeSec === i ? "#C0392B50" : "#333"}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 8, fontWeight: 800, color: activeSec === i ? "#C0392B" : "#444" }}>{i + 1}</span>
+              {s}
+            </button>
+          ))}
+        </div>
+        <div style={{ height: 1, background: "rgba(255,255,255,0.06)", margin: "16px 0" }} />
+        <button onClick={onHome} style={{ width: "100%", padding: "8px 10px", borderRadius: 6, background: "#1e1e1e", border: "1px solid rgba(255,255,255,0.06)", color: "#666", fontSize: 11, fontWeight: 600, cursor: "pointer", fontFamily: "inherit", display: "flex", alignItems: "center", gap: 6 }}>
+          ← Voltar à home
+        </button>
+      </aside>
+
+      <main style={{ flex: 1, padding: "36px 44px 80px", overflowX: "hidden", maxWidth: 840 }}>
+        <div style={{ marginBottom: 40, paddingBottom: 28, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+          <div>
+            <div style={{ display: "inline-block", padding: "3px 10px", borderRadius: 20, background: "#C0392B18", border: "1px solid #C0392B30", color: "#C0392B", fontSize: 11, fontWeight: 700, marginBottom: 12 }}>{area.emoji} {area.title}</div>
+            <h1 style={{ fontSize: "clamp(24px, 3.5vw, 36px)", fontWeight: 900, color: "#fff", margin: "0 0 10px", letterSpacing: "-0.04em", lineHeight: 1.1 }}>{modulo.title}</h1>
+            <p style={{ fontSize: 13, color: "#666", lineHeight: 1.7, maxWidth: 480, margin: "0 0 16px" }}>Domine a organização das frases e as funções sintáticas fundamentais.</p>
+          </div>
+        </div>
+
+        <div id="sec-syn-0" style={{ scrollMarginTop: 68 }}><SecFraseOracao /></div>
+        <div id="sec-syn-1" style={{ scrollMarginTop: 68 }}><SecEstruturaOracao /></div>
+        <div id="sec-syn-2" style={{ scrollMarginTop: 68 }}><SecClassificacaoVerbo /></div>
+        <div id="sec-syn-3" style={{ scrollMarginTop: 68 }}><SecTermosSintaticos /></div>
+        <div id="sec-syn-4" style={{ scrollMarginTop: 68 }}><SecTermosSintaticos2 /></div>
+        <div id="sec-syn-5" style={{ scrollMarginTop: 68 }}><SecAdjuntoVsComplemento /></div>
+        <div id="sec-syn-6" style={{ scrollMarginTop: 68 }}><SecEstudoSujeito /></div>
+        <div id="sec-syn-7" style={{ scrollMarginTop: 68 }}><SecSujeitoInexistente /></div>
+        <div id="sec-syn-8" style={{ scrollMarginTop: 68 }}><SecConcordanciaVerbal /></div>
+        <div id="sec-syn-9" style={{ scrollMarginTop: 68 }}><SecConcordanciaNominal /></div>
+        <div id="sec-syn-10" style={{ scrollMarginTop: 68 }}><SecPeriodoComposto /></div>
+        <div id="sec-syn-11" style={{ scrollMarginTop: 68 }}><SecSubstantivas /></div>
+        <div id="sec-syn-12" style={{ scrollMarginTop: 68 }}><SecAdjetivas /></div>
+        <div id="sec-syn-13" style={{ scrollMarginTop: 68 }}><SecAdverbiais /></div>
+        <div id="sec-syn-14" style={{ scrollMarginTop: 68 }}><SecCoordenadas /></div>
+        <div id="sec-syn-15" style={{ scrollMarginTop: 68 }}><SecParticulasQueSe /></div>
+        <div id="sec-syn-16" style={{ scrollMarginTop: 68 }}><SecCrase /></div>
+        <div id="sec-syn-17" style={{ scrollMarginTop: 68 }}><SecPontuacao /></div>
+        <div id="sec-syn-18" style={{ scrollMarginTop: 68 }}><SecSyntaxQuiz /></div>
+        <div id="sec-summary" style={{ scrollMarginTop: 68 }}><SecResumo onHome={onHome} /></div>
+      </main>
+    </div>
+  );
+}
+
+function LessonInterpretacao({ modulo, area, onHome, onUpdateProgress }) {
   const sections = [
     "Interpretação × Decodificar",
     "Erros de Interpretação",
@@ -2416,11 +3254,12 @@ function LessonInterpretacao({ modulo, area, onHome }) {
   );
 }
 
-function LessonPage({ modulo, area, onHome, onClarityLab }) {
-  if (area.slug === "fonologia") return <LessonFonologia modulo={modulo} area={area} onHome={onHome} onClarityLab={onClarityLab} />;
-  if (area.slug === "formacao") return <LessonFormacao modulo={modulo} area={area} onHome={onHome} onClarityLab={onClarityLab} />;
-  if (area.slug === "classes") return <LessonClasses modulo={modulo} area={area} onHome={onHome} onClarityLab={onClarityLab} />;
-  if (area.slug === "interpretacao") return <LessonInterpretacao modulo={modulo} area={area} onHome={onHome} onClarityLab={onClarityLab} />;
+function LessonPage({ modulo, area, onHome, onClarityLab, onUpdateProgress }) {
+  if (area.slug === "fonologia") return <LessonFonologia modulo={modulo} area={area} onHome={onHome} onClarityLab={onClarityLab} onUpdateProgress={onUpdateProgress} />;
+  if (area.slug === "formacao") return <LessonFormacao modulo={modulo} area={area} onHome={onHome} onClarityLab={onClarityLab} onUpdateProgress={onUpdateProgress} />;
+  if (area.slug === "classes") return <LessonClasses modulo={modulo} area={area} onHome={onHome} onClarityLab={onClarityLab} onUpdateProgress={onUpdateProgress} />;
+  if (area.slug === "interpretacao") return <LessonInterpretacao modulo={modulo} area={area} onHome={onHome} onClarityLab={onClarityLab} onUpdateProgress={onUpdateProgress} />;
+  if (area.slug === "sintaxe") return <LessonSintaxe modulo={modulo} area={area} onHome={onHome} onClarityLab={onClarityLab} onUpdateProgress={onUpdateProgress} />;
 
   return (
     <div style={{ padding: 100, textAlign: "center", color: "#666" }}>
@@ -2642,7 +3481,13 @@ function PomodoroTool() {
 
 
 
-function FlashcardsTool() {
+function FlashcardsTool({ catalog }) {
+  /* ── Sync Logic ───────────────────────────────── */
+  // Get all topics from catalog that have some progress
+  const activeTopics = (catalog?.areas || []).flatMap(a =>
+    (a.modulos || []).filter(m => m.progresso > 0).map(m => m.title)
+  );
+
   /* ── State ─────────────────────────────────────── */
   const SEED_CARDS = [
     { id: 1, topic: "Interpretação", front: "O que é inferência?", back: "Identificar informações IMPLÍCITAS — o que o texto sugere sem afirmar diretamente.", difficulty: null },
@@ -2655,6 +3500,8 @@ function FlashcardsTool() {
     { id: 8, topic: "Classes", front: "O que é um advérbio?", back: "Palavra invariável que modifica verbos, adjetivos ou outros advérbios, indicando circunstância.", difficulty: null },
     { id: 9, topic: "Classes", front: "O que são conjunções coordenativas conclusivas?", back: "Conectivos que expressam conclusão: logo, portanto, por conseguinte, pois (posposto).", difficulty: null },
     { id: 10, topic: "Acentuação", front: "Quando ocorre o acento no hiato?", back: "Quando o hiato é formado por I ou U tônico, sozinho na sílaba ou seguido de S. Ex: saúde, País.", difficulty: null },
+    { id: 11, topic: "Sintaxe — Termos da Oração", front: "Qual a regra S-V-C na pontuação?", back: "NUNCA separar Sujeito, Verbo e Complementos por vírgula na ordem direta.", difficulty: null },
+    { id: 12, topic: "Sintaxe — Termos da Oração", front: "A vírgula no vocativo é...", back: "Sempre OBRIGATÓRIA. Ex: 'Maria, venha cá!'.", difficulty: null },
   ];
 
   const [cards, setCards] = useState(() => {
@@ -2962,6 +3809,31 @@ function CorretorTopadoPage() {
    ROOT APP — roteamento por estado
 ══════════════════════════════════════════════════ */
 export default function App() {
+  const [catalog, setCatalog] = useState(() => {
+    const saved = localStorage.getItem("ifrn_catalog_state");
+    const savedData = saved ? JSON.parse(saved) : null;
+    const cat = JSON.parse(JSON.stringify(INITIAL_CATALOG)); // Clone estrutural
+
+    if (savedData && savedData.areas) {
+      cat.areas.forEach(area => {
+        const savedArea = savedData.areas.find(a => a.slug === area.slug);
+        if (savedArea && savedArea.modulos) {
+          area.modulos.forEach(mod => {
+            const savedMod = savedArea.modulos.find(m => m.slug === mod.slug);
+            if (savedMod) mod.progresso = savedMod.progresso || 0;
+          });
+        }
+      });
+    }
+
+    // Force enable all lessons
+    cat.areas.forEach(a => a.modulos.forEach(m => {
+      m.temAula = true;
+      m.bloqueado = false;
+    }));
+    return cat;
+  });
+
   // page: "home" | "aula" | "pomodoro" | "flashcards" | "redacao" | "corretor" | "profile"
   const [page, setPage] = useState("home");
   const [lessonCtx, setLessonCtx] = useState(null); // { modulo, area }
@@ -2970,6 +3842,22 @@ export default function App() {
     name: "Estudante IFRN",
     avatar: userProfile
   });
+
+  useEffect(() => {
+    localStorage.setItem("ifrn_catalog_state", JSON.stringify(catalog));
+  }, [catalog]);
+
+  const updateProgress = (moduloSlug, value) => {
+    setCatalog(prev => {
+      const newAreas = prev.areas.map(area => ({
+        ...area,
+        modulos: area.modulos.map(mod =>
+          mod.slug === moduloSlug ? { ...mod, progresso: value } : mod
+        )
+      }));
+      return { ...prev, areas: newAreas };
+    });
+  };
 
   const onHome = () => { setPage("home"); window.scrollTo(0, 0); };
   const openLesson = (ctx) => { setLessonCtx(ctx); setPage("aula"); window.scrollTo(0, 0); };
@@ -3002,10 +3890,17 @@ export default function App() {
           onSearch={setSearchQuery}
         />
 
-        {page === "home" && <HomePage onOpenLesson={openLesson} searchQuery={searchQuery} />}
-        {page === "aula" && lessonCtx && <LessonPage modulo={lessonCtx.modulo} area={lessonCtx.area} onHome={onHome} />}
+        {page === "home" && <HomePage onOpenLesson={openLesson} searchQuery={searchQuery} catalog={catalog} />}
+        {page === "aula" && lessonCtx && (
+          <LessonPage
+            modulo={catalog.areas.flatMap(a => a.modulos).find(m => m.slug === lessonCtx.modulo.slug)}
+            area={lessonCtx.area}
+            onHome={onHome}
+            onUpdateProgress={updateProgress}
+          />
+        )}
         {page === "pomodoro" && <PomodoroTool />}
-        {page === "flashcards" && <FlashcardsTool />}
+        {page === "flashcards" && <FlashcardsTool catalog={catalog} />}
         {page === "corretor" && <CorretorTopadoPage />}
         {page === "profile" && <ProfilePage user={user} onUpdateUser={setUser} onHome={onHome} />}
       </div>
