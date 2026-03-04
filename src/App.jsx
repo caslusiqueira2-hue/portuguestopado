@@ -3170,6 +3170,140 @@ function LessonSintaxe({ modulo, area, onHome, onUpdateProgress }) {
   );
 }
 
+
+const ortografiaQuiz = [
+  { id: 1, pergunta: "Em 'Vou ___ cidade de Natal', o uso da crase é:", opcoes: ["Obrigatório", "Proibido", "Facultativo", "Depende do contexto"], correta: 1, explicacao: "Se vou A e volto DE (Natal), crase pra quê? Não se usa crase antes de nomes de cidades que não admitem artigo." },
+  { id: 2, pergunta: "FUNCERN 2019: No trecho 'poderemos assistir à queda de um deles', a crase ocorre por:", opcoes: ["Exigência de artigo do termo regente e preposição do termo regido", "Exigência de preposição do termo regente (assistir) e artigo do termo regido (queda)", "Uso facultativo antes de substantivo feminino", "Trata-se de uma locução adverbial de tempo"], correta: 1, explicacao: "O verbo 'assistir' (no sentido de ver/presenciar) exige a preposição 'A', e o substantivo 'queda' admite o artigo feminino 'A'. A + A = À." },
+  { id: 3, pergunta: "Na frase 'Os alunos do IF, estão focados', a vírgula está incorreta porque:", opcoes: ["Separa o sujeito do verbo", "Separa o verbo do complemento", "Separa o adjunto adnominal do núcleo", "Não há erro na frase"], correta: 0, explicacao: "A regra de ouro da pontuação proíbe separar o Sujeito do Verbo (Ordem S-V-C) por vírgula." },
+  { id: 4, pergunta: "Qual frase apresenta uso FACULTATIVO da crase?", opcoes: ["Fui à escola.", "Entreguei o presente à Maria.", "Chegamos às 10 horas.", "O filme vai das 19h às 21h."], correta: 1, explicacao: "Antes de nomes próprios femininos, o uso do artigo é facultativo, logo a crase também é." },
+  { id: 5, pergunta: "Assinale a alternativa que apresenta a pontuação CORRETA:", opcoes: ["O menino, comprou um livro.", "O menino comprou, um livro.", "O menino comprou um livro, ontem.", "O menino comprou um livro ontem."], correta: 3, explicacao: "Na ordem direta (S-V-C), não se deve usar vírgula separando os termos." }
+];
+
+function SecOrtografiaQuiz() {
+  const [respostas, setRespostas] = useState({});
+  const [revelados, setRevelados] = useState({});
+
+  return (
+    <section style={{ marginBottom: 52 }}>
+      <SectionTitle number="3" title="Quiz de Fixação" subtitle="Teste seus conhecimentos sobre crase e pontuação." />
+      <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+        {ortografiaQuiz.map(q => {
+          const resp = respostas[q.id];
+          const rev = revelados[q.id];
+          const acertou = resp === q.correta;
+
+          return (
+            <div key={q.id} style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 12, padding: 24 }}>
+              <p style={{ fontSize: 14, fontWeight: 700, color: "#fff", marginBottom: 16 }}>{q.id}. {q.pergunta}</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 16 }}>
+                {q.opcoes.map((op, oi) => {
+                  const border = rev ? (oi === q.correta ? "#22C97A40" : oi === resp ? "#C0392B40" : BORDER) : (resp === oi ? RED + "40" : BORDER);
+                  const bg = rev ? (oi === q.correta ? "#22C97A10" : oi === resp ? "#C0392B10" : "transparent") : (resp === oi ? RED + "08" : "transparent");
+                  const cor = rev ? (oi === q.correta ? "#22C97A" : oi === resp ? RED : "#aaa") : (resp === oi ? RED : "#aaa");
+
+                  return (
+                    <button key={oi} onClick={() => !rev && setRespostas(r => ({ ...r, [q.id]: oi }))}
+                      style={{ width: "100%", padding: "10px 12px", background: bg, border: `1px solid ${border}`, borderRadius: 7, color: cor, fontSize: 12, textAlign: "left", cursor: rev ? "default" : "pointer", fontFamily: "inherit", transition: "all 0.15s", display: "flex", alignItems: "center", gap: 8 }}>
+                      <span style={{ width: 20, height: 20, borderRadius: "50%", flexShrink: 0, background: "rgba(255,255,255,0.05)", border: `1px solid ${border}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 700, color: cor }}>
+                        {rev && oi === q.correta ? "✓" : rev && oi === resp && oi !== q.correta ? "✗" : String.fromCharCode(65 + oi)}
+                      </span>
+                      {op}
+                    </button>
+                  );
+                })}
+              </div>
+              {resp !== undefined && !rev && (
+                <button onClick={() => setRevelados(r => ({ ...r, [q.id]: true }))}
+                  style={{ padding: "8px 18px", borderRadius: 7, background: RED, border: "none", color: "#fff", fontSize: 12, fontWeight: 700, cursor: "pointer", fontFamily: "inherit", transition: "opacity 0.15s" }}
+                  onMouseEnter={e => e.currentTarget.style.opacity = "0.85"} onMouseLeave={e => e.currentTarget.style.opacity = "1"}
+                >Confirmar resposta</button>
+              )}
+              {rev && (
+                <div style={{ background: "#161616", border: `1px solid ${BORDER}`, borderLeft: `3px solid ${acertou ? "#22C97A" : "#F59E0B"}`, borderRadius: "0 8px 8px 0", padding: "10px 12px", marginTop: 4 }}>
+                  <p style={{ fontSize: 11, fontWeight: 800, color: acertou ? "#22C97A" : "#F59E0B", margin: "0 0 4px" }}>{acertou ? "✓ Correto!" : "✗ Incorreto"} — Explicação</p>
+                  <p style={{ fontSize: 12, color: "#bbb", margin: 0, lineHeight: 1.6 }}>{q.explicacao}</p>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function LessonOrtografia({ modulo, area, onHome, onUpdateProgress }) {
+  const sections = [
+    "Estudo da Crase",
+    "Estudo da Pontuação",
+    "Quiz de Fixação"
+  ];
+  const [activeSec, setActiveSec] = useState(0);
+  const [showSidebar, setShowSidebar] = useState(false);
+
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+
+  const handleSectionClick = (i) => {
+    setActiveSec(i);
+    setShowSidebar(false);
+    document.getElementById(`sec-orto-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    if (onUpdateProgress) {
+      const progress = Math.round(((i + 1) / sections.length) * 100);
+      onUpdateProgress(modulo.slug, progress);
+    }
+  };
+
+  return (
+    <div className="lesson-container" style={{ display: "flex", flex: 1, minHeight: 0 }}>
+      <button
+        onClick={() => setShowSidebar(!showSidebar)}
+        style={{
+          position: "fixed", bottom: 20, right: 20, zIndex: 300,
+          width: 50, height: 50, borderRadius: "50%", background: "#C0392B",
+          color: "#fff", border: "none", boxShadow: "0 4px 12px rgba(0,0,0,0.5)",
+          display: "none", alignItems: "center", justifyContent: "center", fontSize: 20,
+          cursor: "pointer"
+        }}
+        className="mobile-sidebar-toggle"
+      >
+        {showSidebar ? "×" : "☰"}
+      </button>
+
+      <aside className={`lesson-sidebar ${showSidebar ? "open" : ""}`} style={{ width: 210, flexShrink: 0, borderRight: "1px solid rgba(255,255,255,0.06)", padding: "20px 14px", position: "sticky", top: 52, height: "calc(100vh - 52px)", overflowY: "auto" }}>
+        <p style={{ fontSize: 9, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", color: "#444", marginBottom: 10 }}>Neste módulo</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+          {sections.map((s, i) => (
+            <button key={i} onClick={() => handleSectionClick(i)}
+              style={{ width: "100%", padding: "7px 9px", borderRadius: 6, background: activeSec === i ? "#C0392B15" : "transparent", border: `1px solid ${activeSec === i ? "#C0392B30" : "transparent"}`, color: activeSec === i ? "#ddd" : "#555", fontSize: 11, fontWeight: activeSec === i ? 700 : 400, textAlign: "left", cursor: "pointer", fontFamily: "inherit", display: "flex", alignItems: "center", gap: 7, transition: "all 0.15s" }}>
+              <span style={{ width: 16, height: 16, borderRadius: "50%", flexShrink: 0, background: activeSec === i ? "#C0392B30" : "#222", border: `1px solid ${activeSec === i ? "#C0392B50" : "#333"}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 8, fontWeight: 800, color: activeSec === i ? "#C0392B" : "#444" }}>{i + 1}</span>
+              {s}
+            </button>
+          ))}
+        </div>
+        <div style={{ height: 1, background: "rgba(255,255,255,0.06)", margin: "16px 0" }} />
+        <button onClick={onHome} style={{ width: "100%", padding: "8px 10px", borderRadius: 6, background: "#1e1e1e", border: "1px solid rgba(255,255,255,0.06)", color: "#666", fontSize: 11, fontWeight: 600, cursor: "pointer", fontFamily: "inherit", display: "flex", alignItems: "center", gap: 6 }}>
+          ← Voltar à home
+        </button>
+      </aside>
+
+      <main style={{ flex: 1, padding: "36px 44px 80px", overflowX: "hidden", maxWidth: 840 }}>
+        <div style={{ marginBottom: 40, paddingBottom: 28, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+          <div>
+            <div style={{ display: "inline-block", padding: "3px 10px", borderRadius: 20, background: "#C0392B18", border: "1px solid #C0392B30", color: "#C0392B", fontSize: 11, fontWeight: 700, marginBottom: 12 }}>{area.emoji} {area.title}</div>
+            <h1 style={{ fontSize: "clamp(24px, 3.5vw, 36px)", fontWeight: 900, color: "#fff", margin: "0 0 10px", letterSpacing: "-0.04em", lineHeight: 1.1 }}>{modulo.title}</h1>
+            <p style={{ fontSize: 13, color: "#666", lineHeight: 1.7, maxWidth: 480, margin: "0 0 16px" }}>Domine o uso da crase e as regras de pontuação para o IFRN.</p>
+          </div>
+        </div>
+
+        <div id="sec-orto-0" style={{ scrollMarginTop: 68 }}><SecCrase /></div>
+        <div id="sec-orto-1" style={{ scrollMarginTop: 68 }}><SecPontuacao /></div>
+        <div id="sec-orto-2" style={{ scrollMarginTop: 68 }}><SecOrtografiaQuiz /></div>
+      </main>
+    </div>
+  );
+}
+
 function LessonInterpretacao({ modulo, area, onHome, onUpdateProgress }) {
   const sections = [
     "Interpretação × Decodificar",
@@ -3260,6 +3394,7 @@ function LessonPage({ modulo, area, onHome, onClarityLab, onUpdateProgress }) {
   if (area.slug === "classes") return <LessonClasses modulo={modulo} area={area} onHome={onHome} onClarityLab={onClarityLab} onUpdateProgress={onUpdateProgress} />;
   if (area.slug === "interpretacao") return <LessonInterpretacao modulo={modulo} area={area} onHome={onHome} onClarityLab={onClarityLab} onUpdateProgress={onUpdateProgress} />;
   if (area.slug === "sintaxe") return <LessonSintaxe modulo={modulo} area={area} onHome={onHome} onClarityLab={onClarityLab} onUpdateProgress={onUpdateProgress} />;
+  if (area.slug === "ortografia") return <LessonOrtografia modulo={modulo} area={area} onHome={onHome} onUpdateProgress={onUpdateProgress} />;
 
   return (
     <div style={{ padding: 100, textAlign: "center", color: "#666" }}>
